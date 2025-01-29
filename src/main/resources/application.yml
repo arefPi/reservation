@@ -1,0 +1,38 @@
+spring:
+  cache:
+    type: redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  flyway:
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: postgres
+    password: postgres
+    enabled: true
+    baseline-on-migrate: true
+    out-of-order: true
+    locations: classpath:/sql
+
+redisson:
+  server:
+    address: "redis://localhost:6379"
+  lock:
+    reservation-service:
+        leaseTime: 2000
+        waitTime: 50
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
